@@ -39,7 +39,7 @@ class remora extends eqLogic {
     self::getStatusAll();
   }
 
-  public function getTeleinfo() {
+  public static function getTeleinfo() {
     //https://api.particle.io/v1/devices/[DEVICE_ID]/indexhp?access_token=[ACCESS_TOKEN]
     $elogic = self::byLogicalId('teleinfo', 'remora');
     log::add('remora', 'debug', 'getTeleinfo ');
@@ -127,7 +127,7 @@ class remora extends eqLogic {
     return ;
   }
 
-  public function getStatusAll() {
+  public static function getStatusAll() {
     log::add('remora', 'debug', 'getStatusAll ');
     if (config::byKey('type', 'remora', 0) == "esp") {
       $addr = config::byKey('addr', 'remora', 0);
