@@ -198,7 +198,7 @@ class remora extends eqLogic {
     return ;
   }
 
-  public function remoraCall($zone,$request) {
+  public static function remoraCall($zone,$request) {
     log::add('remora', 'debug', 'Recu commande ' . $request . ' vers ' . $zone);
     //curl https://api.particle.io/v1/devices/[DEVICE_ID]/fp -d access_token=[ACCESS_TOKEN] -d params=[ORDRES]
     $params = $zone.$request;
@@ -232,7 +232,7 @@ class remora extends eqLogic {
         $remoraCmd->event($request);
   }
 
-  public function remoraRelais($request) {
+  public static function remoraRelais($request) {
     log::add('remora', 'debug', 'Recu commande relais vers ' . $request);
     if (config::byKey('type', 'remora', 0) == "esp") {
       $addr = config::byKey('addr', 'remora', 0);
